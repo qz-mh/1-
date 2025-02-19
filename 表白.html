@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>情书</title>
+    <style>
+        /* 全局样式 */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Ma Shan Zheng', cursive;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* 封面样式 */
+     .cover {
+            background-color: #fff;
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            cursor: pointer;
+        }
+
+     .envelope {
+            font-size: 60px;
+            color: #e74c3c;
+            animation: beat 1s infinite;
+        }
+
+        @keyframes beat {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+     .cover h1 {
+            font-size: 24px;
+            color: #333;
+            margin-top: 20px;
+        }
+
+        /* 信纸样式 */
+     .letter {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 600px;
+            position: relative;
+            display: none;
+        }
+
+     .letter::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                #f5f5f5,
+                #f5f5f5 24px,
+                #ccc 24px,
+                #ccc 25px
+            );
+            z-index: -1;
+            border-radius: 10px;
+        }
+
+     .letter p {
+            font-size: 18px;
+            line-height: 25px;
+            color: #333;
+            margin: 0;
+            position: relative;
+            z-index: 1;
+            text-decoration: underline;
+        }
+
+        /* 返回按钮样式 */
+     .back-btn {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* 加载情书翩翩体 */
+        @import url('https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap');
+    </style>
+</head>
+
+<body>
+    <!-- 封面 -->
+    <div class="cover" id="cover">
+        <div class="envelope">❤️</div>
+        <h1>点击打开情书</h1>
+    </div>
+
+    <!-- 信纸 -->
+    <div class="letter" id="letter">
+        <p>
+            亲爱的，<br><br>
+            从遇见你的那一刻起，我的世界变得明亮而温暖。<br>
+            你的笑容像阳光，照亮了我心中的每一个角落。<br>
+            每一天，我都想与你分享生活的点滴，<br>
+            无论是欢笑还是泪水，我都愿意与你一同走过。<br><br>
+            你是我生命中最美的风景，<br>
+            愿我们的故事，永远写在这张信纸上。<br><br>
+            爱你的，<br>
+            [你的名字]
+        </p>
+        <button class="back-btn" id="backBtn">返回</button>
+    </div>
+
+    <script>
+        const cover = document.getElementById('cover');
+        const letter = document.getElementById('letter');
+        const backBtn = document.getElementById('backBtn');
+
+        cover.addEventListener('click', () => {
+            cover.style.display = 'none';
+            letter.style.display = 'block';
+        });
+
+        backBtn.addEventListener('click', () => {
+            cover.style.display = 'block';
+            letter.style.display = 'none';
+        });
+    </script>
+
+</body>
+
+</html>
+
